@@ -1,0 +1,23 @@
+﻿@model List<MoviesManager.Models.ListMovies>
+
+
+@{
+    ViewBag.Title = "List Movies";
+    Layout = "_Layout";
+}
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+    </tr>
+}
+
+<h2>title</h2>

@@ -18,6 +18,10 @@ namespace MoviesManager
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Movie",
+                url: "{controller}/{action}/{id}"
+            );
         }
     }
 }

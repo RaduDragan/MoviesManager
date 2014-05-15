@@ -63,3 +63,7 @@ C:\Work\MoviesManager\MoviesManager\MoviesManager\bin\Antlr3.Runtime.pdb
 C:\Work\MoviesManager\MoviesManager\MoviesManager\obj\Debug\MoviesManager.csprojResolveAssemblyReference.cache
 C:\Work\MoviesManager\MoviesManager\MoviesManager\obj\Debug\MoviesManager.dll
 C:\Work\MoviesManager\MoviesManager\MoviesManager\obj\Debug\MoviesManager.pdb
+C:\Work\MoviesManager\MoviesManager\MoviesManager\bin\EntityFramework.dll
+C:\Work\MoviesManager\MoviesManager\MoviesManager\bin\EntityFramework.SqlServer.dll
+C:\Work\MoviesManager\MoviesManager\MoviesManager\bin\EntityFramework.xml
+C:\Work\MoviesManager\MoviesManager\MoviesManager\bin\EntityFramework.SqlServer.xml

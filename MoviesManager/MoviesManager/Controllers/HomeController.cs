@@ -25,17 +25,20 @@ namespace MoviesManager.Controllers
             {
                 _session.Save(new Movie
                 {
-                    Name = "Movie 1"
+                    Name = "Movie 1",
+                    ReleaseDate = Convert.ToDateTime("2010-12-25")
                 });
 
                 _session.Save(new Movie
                 {
-                    Name = "Movie 2"
+                    Name = "Movie 2",
+                    ReleaseDate = Convert.ToDateTime("2013-10-17")
                 });
 
                 _session.Save(new Movie
                 {
-                    Name = "Movie 3"
+                    Name = "Movie 3",
+                    ReleaseDate = Convert.ToDateTime("2014-04-15")
                 });
 
                 tr.Commit();
@@ -60,5 +63,6 @@ namespace MoviesManager.Controllers
 
             return View();
         }
+        
     }
 }
