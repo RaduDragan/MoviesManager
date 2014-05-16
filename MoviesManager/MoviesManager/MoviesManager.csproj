@@ -192,6 +192,8 @@
     <Content Include="Views\Movie\Movie.cshtml" />
     <Content Include="Views\Movie\List.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\AddNew.cshtml" />
+    <Content Include="Views\Movie\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MoviesManager.Models;
 using MoviesManager.ViewModels;
 using NHibernate;
+using NHibernate.Criterion;
 using NHibernate.Linq;
 
 namespace MoviesManager.Controllers
@@ -24,6 +25,77 @@ namespace MoviesManager.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpGet]
+        public ActionResult AddNew()
+        {
+            var newMovie = new MovieModel();
+            
+            return View(newMovie);
+        }
+        [HttpPost]
+        public ActionResult AddNew(MovieModel model)
+        {
+            var newMovie = new Movie();
+            using (var tr = _session.BeginTransaction())
+            {
+                {
+                    newMovie.Id = model.Id;
+                    newMovie.Name = model.Name;
+                    newMovie.ReleaseDate = model.ReleaseDate;
+                    _session.Save(newMovie);
+                }
+                tr.Commit();
+            }
+            return RedirectToAction("List");
+        }
+        [HttpGet]
+        public ActionResult Edit(Guid id)
+        {
+           var newMovie = new MovieModel();
+
+            var movie = _session.Get<Movie>(id);
+            if (movie != null)
+            {
+                newMovie.Id = movie.Id;
+                newMovie.Name = movie.Name;
+                newMovie.ReleaseDate = movie.ReleaseDate;
+            }
+            return View(newMovie);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(MovieModel model)
+        {
+            using (var tr = _session.BeginTransaction())
+            {
+                var movie = _session.Get<Movie>(model.Id);
+                if (movie != null)
+                {
+                    movie.Name = model.Name;
+                    movie.ReleaseDate = model.ReleaseDate;
+                    _session.Save(movie);
+                }
+                tr.Commit();
+            }
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(Guid id)
+        {
+            //...Delete
+            using (var tr = _session.BeginTransaction())
+            {
+                var movie = _session.Get<Movie>(id);
+                if (movie != null)
+                {
+                    _session.Delete(movie);
+                }
+                
+                tr.Commit();
+            }
+            return RedirectToAction("List");
         }
 
         [HttpGet]

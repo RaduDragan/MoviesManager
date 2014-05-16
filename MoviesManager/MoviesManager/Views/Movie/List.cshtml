@@ -8,21 +8,28 @@
 }
 
 <h2>Movies List</h2>
+<div>
+    <a href="/Movie/AddNew">AddNew</a>
+</div>
 
 
 <table>
-@foreach (var item in Model.Movies)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Movies)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                <a href="/Movie/Edit/@item.Id">Edit</a>
+                <a href="/Movie/Delete/@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
 </table>
